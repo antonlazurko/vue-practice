@@ -1,17 +1,16 @@
 <script setup>
-const items = [
-  { id: 'red', name: 'Red' },
-  { id: 'green', name: 'Green' },
-  { id: 'blue', name: 'Blue' },
-]
+import LeftPanel from './components/LeftPanel.vue'
 </script>
 
 <template>
-  <h1>Hello, Vue!</h1>
-  <div>TEST</div>
-  <div v-for="item in items" :id="item.id" :key="item.id">
-    {{ item.name }}
-  </div>
+  <LeftPanel />
+  <main class="main"></main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.main {
+  background-color: var(--main-bg-color);
+  padding: 60px 50px;
+  border-radius: 25px;
+}
+</style>

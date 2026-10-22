@@ -24,4 +24,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--primary-color);
   background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
