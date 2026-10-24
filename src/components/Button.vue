@@ -1,7 +1,15 @@
-<script setup></script>
+<script setup>
+defineOptions({ inheritAttrs: false })
+const props = defineProps({ onClick: Function })
+</script>
 
 <template>
-  <button class="button">
+  <button
+    class="button"
+    v-bind="$attrs"
+    :class="$attrs.disabled ? 'disabled' : ''"
+    @click="props.onClick"
+  >
     <slot name="icon"></slot>
     <slot></slot>
   </button>
@@ -24,5 +32,9 @@
 }
 .button:hover {
   background: var(--gradient-inverted-color);
+}
+.button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 </style>

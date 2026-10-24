@@ -1,17 +1,22 @@
 <script setup>
+import { ref } from 'vue'
+
 import Stat from './components/Stat.vue'
-import IconLocation from './components/icons/IconLocation.vue'
+import LocationChanger from './components/LocationChanger.vue'
+
 const data = { label: 'Humidity', stat: '90%' }
+const location = ref('')
+const changeLocation = (value = '') => (location.value = value.trim())
 </script>
 
 <template>
+  <span>{{ location }}</span>
   <Stat v-bind="data" />
   <Stat v-bind="data" />
   <Stat v-bind="data" />
   <Stat />
   <main class="main">
-    <IconLocation :style="{ opacity: 0.5 }" />
-    <img src="./assets/Location.svg" alt="location" />
+    <LocationChanger @change-location="changeLocation" />
   </main>
 </template>
 
