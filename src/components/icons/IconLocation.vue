@@ -1,9 +1,9 @@
 <script setup>
-defineOptions({ inheritAttrs: false })
-const { size = 24, color = '#FFFFFF' } = defineProps({
-  size: [Number, String],
-  color: String,
-})
+  defineOptions({ inheritAttrs: false })
+  const { size = 24, color = '#FFFFFF' } = defineProps({
+    size: [Number, String],
+    color: String,
+  })
 </script>
 <template>
   <svg
