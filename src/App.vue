@@ -1,10 +1,18 @@
 <script setup>
-import LeftPanel from './components/LeftPanel.vue'
+import Stat from './components/Stat.vue'
+import IconLocation from './components/icons/IconLocation.vue'
+const data = { label: 'Humidity', stat: '90%' }
 </script>
 
 <template>
-  <LeftPanel />
-  <main class="main"></main>
+  <Stat v-bind="data" />
+  <Stat v-bind="data" />
+  <Stat v-bind="data" />
+  <Stat />
+  <main class="main">
+    <IconLocation :style="{ opacity: 0.5 }" />
+    <img src="./assets/Location.svg" alt="location" />
+  </main>
 </template>
 
 <style scoped>
