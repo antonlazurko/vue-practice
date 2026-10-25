@@ -11,6 +11,7 @@
 </template>
 <style scoped>
   input {
+    box-sizing: border-box;
     width: 100%;
     padding: 10px 20px;
     border-radius: 5px;

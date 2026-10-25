@@ -45,6 +45,11 @@
   .location-changer-wrapper {
     min-width: 326px;
   }
+  @media (max-width: 600px) {
+    .location-changer-wrapper {
+      min-width: 0;
+    }
+  }
   .location-changer {
     display: flex;
     gap: 16px;

@@ -69,15 +69,33 @@
   </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
   .right-panel {
     background-color: var(--main-bg-color);
     padding: 60px 50px;
     border-radius: 25px;
+
+    @media (max-width: 1024px) {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 520px;
+      padding: 24px 20px;
+    }
   }
   .list-days {
     padding: 15px 0;
     display: flex;
     gap: 8px;
+
+    @media (max-width: 600px) {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+
+      > * {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+      }
+    }
   }
 </style>

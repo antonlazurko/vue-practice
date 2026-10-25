@@ -34,10 +34,13 @@
     gap: 15px;
     border: none;
     cursor: pointer;
-    &:hover {
-      background-color: #3a434f;
-      transform: scale(1.1);
-      transition: all 0.2s ease-in-out;
+    // touch screens keep :hover after tap, so the zoom effect is for mice only
+    @media (hover: hover) {
+      &:hover {
+        background-color: #3a434f;
+        transform: scale(1.1);
+        transition: all 0.2s ease-in-out;
+      }
     }
     &__isActive {
       color: var(--primary-inverted-color);
@@ -57,6 +60,14 @@
       font-size: 14px;
       line-height: 100%;
       text-align: right;
+    }
+    @media (max-width: 600px) {
+      padding: 16px 20px;
+      gap: 10px;
+
+      &__date {
+        font-size: 16px;
+      }
     }
   }
 </style>

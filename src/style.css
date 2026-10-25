@@ -26,9 +26,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--primary-color);
   background-color: var(--bg-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 button,
 input,

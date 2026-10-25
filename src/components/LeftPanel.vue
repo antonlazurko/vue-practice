@@ -80,5 +80,33 @@
       font-size: 28px;
       font-weight: 700;
     }
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      max-width: 520px;
+      margin-left: 0;
+      aspect-ratio: auto;
+      min-height: 420px;
+      gap: 24px;
+    }
+    @media (max-width: 600px) {
+      min-height: 360px;
+      padding: 28px 24px 32px;
+      border-radius: 24px;
+
+      &__weekday {
+        font-size: 28px;
+      }
+      &__date,
+      &__location {
+        font-size: 16px;
+      }
+      &__temp {
+        font-size: 40px;
+      }
+      &__condition {
+        font-size: 22px;
+      }
+    }
   }
 </style>
