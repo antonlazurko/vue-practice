@@ -79,4 +79,13 @@
     align-items: center;
     min-height: 100vh;
   }
+  @media (max-width: 1024px) {
+    .main {
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 16px;
+    }
+  }
 </style>

@@ -22,5 +22,8 @@
     &-value {
       font-weight: 500;
     }
+    @media (max-width: 600px) {
+      font-size: 20px;
+    }
   }
 </style>

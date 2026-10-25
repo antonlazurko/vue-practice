@@ -17,4 +17,9 @@
     background-color: var(--card-bg-color);
     border-radius: 15px;
   }
+  @media (max-width: 1024px) {
+    .error-message {
+      margin-top: 0;
+    }
+  }
 </style>
