@@ -2,7 +2,7 @@ import { API_ENDPOINT, API_KEY } from './constants'
 
 export const getForecast = async (location) => {
   const response = await fetch(
-    `${API_ENDPOINT}/forecast.json?key=${API_KEY}&q=${location}&days=7&aqi=no&alerts=no`,
+    `${API_ENDPOINT}/forecast.json?key=${API_KEY}&q=${location}&days=4&aqi=no&alerts=no`,
   )
   const data = await response.json()
 
