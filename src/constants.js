@@ -1,3 +1,7 @@
 export const API_ENDPOINT = 'https://api.weatherapi.com/v1'
 export const API_KEY = '896f07532c614d7690092628262510'
 export const DEFAULT_LOCATION = 'London'
+export const ERROR_PROVIDE = Symbol('error')
+export const FORECAST_PROVIDE = Symbol('forecast')
+export const IS_LOADING_PROVIDE = Symbol('isLoading')
+export const CHANGE_LOCATION_PROVIDE = Symbol('changeLocation')

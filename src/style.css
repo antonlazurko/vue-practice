@@ -29,3 +29,9 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}

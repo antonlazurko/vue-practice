@@ -29,7 +29,6 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-family: var(--font-family);
   }
   .button:hover {
     background: var(--gradient-inverted-color);

@@ -1,11 +1,12 @@
 <script setup>
-  import { ref } from 'vue'
+  import { inject, ref } from 'vue'
 
+  import { CHANGE_LOCATION_PROVIDE } from '../constants'
   import Button from './Button.vue'
   import IconLocation from './icons/IconLocation.vue'
   import Input from './Input.vue'
 
-  const emit = defineEmits(['changeLocation'])
+  const changeLocation = inject(CHANGE_LOCATION_PROVIDE)
 
   const editMode = ref(false)
   const location = ref('')
@@ -14,8 +15,8 @@
 
   const onChange = (value) => (location.value = value)
   const onClearLocation = () => (location.value = '')
-  const onClickSave = async () => {
-    emit('changeLocation', location.value)
+  const onClickSave = () => {
+    changeLocation(location.value)
     editModeToggler()
     onClearLocation()
   }
