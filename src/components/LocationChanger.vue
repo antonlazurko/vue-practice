@@ -25,6 +25,7 @@
     <Button v-if="!editMode" :on-click="editModeToggler">Change Location</Button>
     <div v-else class="location-changer">
       <Input
+        v-focus
         placeholder="Enter location"
         :value="location"
         :on-change="onChange"
