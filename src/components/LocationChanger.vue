@@ -21,18 +21,28 @@
   }
 </script>
 <template>
-  <Button v-if="!editMode" :on-click="editModeToggler">Change Location</Button>
-  <div v-else class="location-changer">
-    <Input placeholder="Enter location" :value="location" :on-change="onChange" />
-    <Button :on-click="onClickSave" :disabled="!location.length">
-      <template #icon>
-        <IconLocation size="14" />
-      </template>
-      Save
-    </Button>
+  <div class="location-changer-wrapper">
+    <Button v-if="!editMode" :on-click="editModeToggler">Change Location</Button>
+    <div v-else class="location-changer">
+      <Input
+        placeholder="Enter location"
+        :value="location"
+        :on-change="onChange"
+        @keyup.enter="onClickSave"
+      />
+      <Button :on-click="onClickSave" :disabled="!location.length">
+        <template #icon>
+          <IconLocation size="14" />
+        </template>
+        Save
+      </Button>
+    </div>
   </div>
 </template>
 <style scoped>
+  .location-changer-wrapper {
+    min-width: 326px;
+  }
   .location-changer {
     display: flex;
     gap: 16px;

@@ -17,10 +17,11 @@
 
 <style scoped>
   .button {
+    width: 100%;
     display: flex;
     gap: 8px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background: var(--gradient-color);
     color: white;
     border: none;
