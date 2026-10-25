@@ -1,5 +1,5 @@
 export const API_ENDPOINT = 'https://api.weatherapi.com/v1'
-export const API_KEY = '896f07532c614d7690092628262510'
+export const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
 export const DEFAULT_LOCATION = 'London'
 export const ERROR_PROVIDE = Symbol('error')
 export const FORECAST_PROVIDE = Symbol('forecast')
