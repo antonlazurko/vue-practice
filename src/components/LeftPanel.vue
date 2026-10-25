@@ -1,19 +1,16 @@
 <script setup>
   import { computed, inject } from 'vue'
 
-  import { FORECAST_PROVIDE, IS_LOADING_PROVIDE } from '../constants'
+  import { FORECAST_PROVIDE, IS_LOADING_PROVIDE, SELECTED_DAY_PROVIDE } from '../constants'
   import IconLocation from './icons/IconLocation.vue'
   import WeatherIcon from './WeatherIcon.vue'
 
   const forecast = inject(FORECAST_PROVIDE)
   const isLoading = inject(IS_LOADING_PROVIDE)
+  const selectedDay = inject(SELECTED_DAY_PROVIDE)
 
-  const localDate = computed(() => {
-    const localtime = forecast.value?.location.localtime
-    return localtime ? new Date(localtime.split(' ')[0]) : null
-  })
   const formatDate = (options) =>
-    localDate.value?.toLocaleDateString('en', { ...options, timeZone: 'UTC' })
+    selectedDay.value?.date.toLocaleDateString('en', { ...options, timeZone: 'UTC' })
 
   const weekday = computed(() => formatDate({ weekday: 'long' }))
   const date = computed(() => formatDate({ day: 'numeric', month: 'short', year: 'numeric' }))
@@ -21,7 +18,7 @@
 
 <template>
   <aside class="left-panel">
-    <template v-if="forecast">
+    <template v-if="selectedDay">
       <div>
         <h2 class="left-panel__weekday">{{ weekday }}</h2>
         <div class="left-panel__date">{{ date }}</div>
@@ -31,9 +28,9 @@
         </div>
       </div>
       <div>
-        <WeatherIcon :code="forecast.current.condition.code" size="90" />
-        <div class="left-panel__temp">{{ Math.round(forecast.current.temp_c) }} °C</div>
-        <div class="left-panel__condition">{{ forecast.current.condition.text }}</div>
+        <WeatherIcon :code="selectedDay.condition.code" size="90" />
+        <div class="left-panel__temp">{{ Math.round(selectedDay.temp) }} °C</div>
+        <div class="left-panel__condition">{{ selectedDay.condition.text }}</div>
       </div>
     </template>
     <h3 v-else-if="isLoading">Loading...</h3>
@@ -50,6 +47,7 @@
     width: 410px;
     aspect-ratio: 493 / 666;
     padding: 40px 36px 48px;
+    margin-left: 50px;
     border-radius: 30px;
     background-image: url('../assets/left-panel-bg-img.png');
     background-size: cover;

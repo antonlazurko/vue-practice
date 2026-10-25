@@ -1,7 +1,13 @@
 <script setup>
-  import { computed, inject, ref } from 'vue'
+  import { computed, inject } from 'vue'
 
-  import { ERROR_PROVIDE, FORECAST_PROVIDE, IS_LOADING_PROVIDE } from '../constants'
+  import {
+    ACTIVE_DAY_PROVIDE,
+    ERROR_PROVIDE,
+    FORECAST_PROVIDE,
+    IS_LOADING_PROVIDE,
+    SELECTED_DAY_PROVIDE,
+  } from '../constants'
   import DayCard from './DayCard.vue'
   import ErrorMessage from './ErrorMessage.vue'
   import LocationChanger from './LocationChanger.vue'
@@ -11,15 +17,16 @@
   const forecast = inject(FORECAST_PROVIDE)
   const isLoading = inject(IS_LOADING_PROVIDE)
 
-  const activeDay = ref(0)
+  const activeDay = inject(ACTIVE_DAY_PROVIDE)
+  const selectedDay = inject(SELECTED_DAY_PROVIDE)
 
   const transformForecast = computed(() => {
-    if (!forecast.value) return []
-    const { temp_c, humidity, cloud, wind_kph } = forecast.value.current
+    if (!selectedDay.value) return []
+    const { rainChance, humidity, cloud, wind } = selectedDay.value
     return [
       {
-        label: 'Temperature',
-        stat: temp_c === 0 ? temp_c : temp_c + ' °C',
+        label: 'Chance of rain',
+        stat: rainChance + ' %',
       },
       {
         label: 'Humidity',
@@ -31,7 +38,7 @@
       },
       {
         label: 'Wind',
-        stat: wind_kph + ' km/h',
+        stat: wind + ' km/h',
       },
     ]
   })
